@@ -1,0 +1,19 @@
+<div>
+  <div class="row mg-0">
+    <div class="col-sm-12">
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand click-pointer" ui-sref="main">Books</a>
+          </div>
+          <div>
+            <ul class="nav navbar-nav" ng-repeat="page in data.pages track by $index">
+              <li class="click-pointer"><a ui-sref="main.{{page}}" ui-sref-opts="{reload: true}">{{page}}</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <div ui-view></div>
+    </div>
+  </div>
+</div>

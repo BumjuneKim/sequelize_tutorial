@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html ng-app="mainApp">
+  <!-- tutorial main page -->
+  <head>
+    <title>Sequelize Tutorial</title>
+    <link rel="stylesheet" href="/js/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/js/lib/jquery-ui/themes/flick/jquery-ui.min.css" />
+    <link rel="stylesheet" href="/js/lib/font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="/css/custom.css" />
+  </head>
+  <body ng-controller="containerCtrl" ng-cloak>
+    <div class="block-shadow" ng-click="$event.preventDefault(); $event.stopPropagation();" ng-show="nowLoading">
+      <i class="fa fa-spinner fa-spin fa-4x global-loading"></i>
+    </div>
+    <div class="message-box">
+      <alert class="animate-show-hide click-pointer" ng-if="message.show" ng-repeat="message in alertMessages" type="{{message.type}}"
+             close="closeAlert($index)" ng-click="closeAlert($index)">{{message.content}}</alert>
+    </div>
+    <div ui-view></div>
+
+    <!-- library js -->
+    <script src="/js/lib/jquery/dist/jquery.min.js"></script>
+    <script src="/js/lib/jquery-ui/jquery-ui.min.js"></script>
+    <script src="/js/lib/underscore/underscore.js"></script>
+    <script src="/js/lib/angular/angular.js"></script>
+    <script src="/js/lib/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="/js/lib/angular-animate/angular-animate.min.js"></script>
+    <script src="/js/lib/angular-bootstrap/ui-bootstrap.min.js"></script>
+    <script src="/js/lib/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+    <!-- controller js-->
+    <script src="/js/app.js"></script>
+    <script src="/js/controller/container.c.js"></script>
+    <script src="/js/controller/main.c.js"></script>
+    <script src="/js/controller/publisher.c.js"></script>
+    <script src="/js/controller/books.c.js"></script>
+    <!-- service js -->
+    <script src="/js/service/utils.s.js"></script>
+    <script src="/js/service/service.s.js"></script>
+  </body>
+</html>

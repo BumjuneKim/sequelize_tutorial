@@ -1,0 +1,46 @@
+<div class="row">
+  <div class="col-xs-3">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        Add New Publisher
+      </div>
+      <div class="panel-body">
+        <input type="text" placeholder="publisher name" ng-model="data.newPubName">
+        <button class="btn btn-success" ng-click="func.addNewPublisher()">Register</button>
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-6">
+    <h3 class="centre">Publisher List</h3>
+    <table class="table table-bordered">
+      <thead>
+        <th class="col-xs-2">출판사ID</th>
+        <th class="col-xs-5">이름</th>
+        <th class="col-xs-4">설립일</th>
+        <th class="col-xs-1"></th>
+      </thead>
+      <tbody>
+        <tr class="centre" ng-repeat="p in data.publisherList track by p.pub_id">
+          <td>{{p.pub_id}}</td>
+          <td>
+            <div class="click-pointer" ng-if="!p.editable" ng-click="p.editable = !p.editable">
+              {{p.name}}
+            </div>
+            <div ng-if="p.editable">
+              <input type="text" ng-model="p.newName" ng-init="p.newName = p.name">
+              <button class="btn btn-success btn-xs" ng-click="func.updateName(p)">Update</button>
+              <button class="btn btn-warning btn-xs" ng-click="p.editable = !p.editable">Cancel</button>
+            </div>
+          </td>
+          <td>{{p.established_date | date:'medium'}}</td>
+          <td>
+            <button class="btn btn-danger btn-xs" ng-click="func.deletePublisher(p)">
+              <i class="fa fa-trash-o"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+

@@ -1,0 +1,23 @@
+{
+  "name": "sequelize_tutorial",
+  "version": "0.0.0",
+  "authors": [
+    "BumjuneKim <kbj@flitto.com>"
+  ],
+  "description": "bower dependency managing about sequelize_tutorial",
+  "private": true,
+  "dependencies": {
+    "angular": "~1.4.8",
+    "angular-animate": "~1.4.8",
+    "angular-bootstrap": "~0.14.3",
+    "bootstrap": "~3.3.6",
+    "jquery-ui": "~1.11.4",
+    "jquery.gritter": "~1.7.4",
+    "angular-ui-router": "ui-router#~0.2.15",
+    "underscore": "~1.8.3",
+    "font-awesome": "~4.5.0"
+  },
+  "resolutions": {
+    "angular": ">= 1.4.8"
+  }
+}
