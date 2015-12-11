@@ -5,7 +5,6 @@ ngModule.controller('pubCtrl', ['$scope', 'pubService', 'alertService',
 
     $scope.init = function() {
       pubService.getPublishers().then(function(response) {
-        console.log(response.data);
         Data.publisherList = response.data;
       });
     };

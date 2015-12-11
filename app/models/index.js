@@ -2,6 +2,7 @@
 
 var fs = require('fs');
 var path = require('path');
+var association = require('./association');
 var Sequelize = require('sequelize');
 var sequelize = new Sequelize('postgres://sequelize:1234@localhost/sequelize');
 /*var sequelize = new Sequelize('sequelize', 'sequelize', '1234', {
@@ -21,13 +22,11 @@ fs.readdirSync(__dirname)
     db[model.name] = model;
   });
 
+association.init(db);
+
 //db.Publisher.sync();
 //db.Publisher.drop();
 //db.Publisher.sync({force: true});
-
-/*
-var association = require('./association');
-association.init(db); */
 
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;

@@ -20,21 +20,10 @@ ngModule.config(['$stateProvider', '$urlRouterProvider', '$httpProvider', '$tool
         controller: 'pubCtrl'
       })
       .state('main.books', {
-        url: '/books',
+        url: '/books?pub_id',
         templateUrl: 'tpl/books.html',
         controller: 'booksCtrl'
       });
-
-      /*.state('admin.lang_set', {
-        url: '/lang_set?currentPage&perPage&leftLang&rightLang&category',
-        templateUrl: 'tpl/langSet.html',
-        controller: 'langSetCtrl'
-      })
-      .state('admin.combine_sns', {
-        url: '/sns/combine/:tw_req_id',
-        templateUrl: '/tpl/combine_sns.html',
-        controller: 'combineSnsCtrl'
-      }); */
 
     $urlRouterProvider.otherwise('/');
     $httpProvider.interceptors.push('httpErrorInterceptor');

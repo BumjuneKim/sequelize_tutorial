@@ -17,3 +17,20 @@ ngModule.factory('pubService', ['$http', 'urlService',
       }
     };
   }]);
+
+ngModule.factory('bookService', ['$http', 'urlService',
+  function($http, urlService) {
+    var PREFIX = '/api/seq_ex/book';
+
+    return {
+      addNewBook: function(options) {
+        return $http.post(PREFIX, options);
+      },
+      getPublisherBooks: function(options) {
+        return $http.get(PREFIX + urlService.serialize(options));
+      },
+      testRawQuery: function(options) {
+        return $http.get(PREFIX + '/test' + urlService.serialize(options));
+      }
+    };
+  }]);

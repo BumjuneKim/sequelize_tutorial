@@ -1,9 +1,41 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title></title>
-</head>
-<body>
-</body>
-</html>
+<div class="row">
+  <div class="col-xs-3">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        Add New Publisher
+      </div>
+      <div class="panel-body">
+        <div class="col-xs-12">
+          <select ng-model="data.newBook.pub_id" ng-options="p.pub_id as p.name for p in data.publisherList"></select>
+          <input type="text" placeholder="book title" ng-model="data.newBook.title" />
+          <input type="text" placeholder="author" ng-model="data.newBook.author" />
+          <input type="text" placeholder="stock (number)" ng-model="data.newBook.stock" valid-number />
+          <button class="btn btn-success" ng-click="func.addNewBook()">Register</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-6">
+    <select ng-model="data.pub_id" ng-change="func.changePublisher()"
+            ng-options="p.pub_id as p.name for p in data.publisherList"></select>
+    <h3 class="centre">Book List 출판사 {{data.publisher.name}}</h3>
+    <table class="table table-bordered">
+      <thead>
+        <th class="col-xs-5 centre">Title</th>
+        <th class="col-xs-4 centre">Author</th>
+        <th class="col-xs-1 centre">재고</th>
+        <th class="col-xs-2 centre">등록일</th>
+      </thead>
+      <tbody>
+        <tr class="centre" ng-repeat="b in data.publisher.Books track by b.book_id">
+          <td>{{b.title}}</td>
+          <td>{{b.author}}</td>
+          <td>{{b.stock}}</td>
+          <td style="font-size: 8px;">{{b.register_date | date:'short'}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
