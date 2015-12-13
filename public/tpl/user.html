@@ -1,0 +1,31 @@
+<div class="row">
+  <div class="col-xs-3">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        Add New User
+      </div>
+      <div class="panel-body">
+        <input type="text" placeholder="user name" ng-model="data.newUsername">
+        <button class="btn btn-success" ng-click="func.addNewUser()">Add</button>
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-6">
+    <h3 class="centre">User List</h3>
+    <table class="table table-bordered">
+      <thead>
+        <th class="col-xs-2">UserID</th>
+        <th class="col-xs-5">Username</th>
+        <th class="col-xs-5">create_date</th>
+      </thead>
+      <tbody>
+        <tr class="centre" ng-repeat="u in data.userList track by u.user_id">
+          <td>{{u.user_id}}</td>
+          <td>{{u.username}}</td>
+          <td>{{u.create_date | date:'short'}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+

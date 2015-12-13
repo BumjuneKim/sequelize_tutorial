@@ -4,7 +4,7 @@ ngModule.controller('mainCtrl', ['$scope',
       , Func = $scope.func = {};
 
     $scope.init = function() {
-      Data.pages = ['publisher', 'books', 'rent', 'return', 'user', 'history'];
+      Data.pages = ['publisher', 'books', 'user', 'rent'];
     };
 
     $scope.init();

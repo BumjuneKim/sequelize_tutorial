@@ -2,9 +2,20 @@
 
 var fs = require('fs');
 var path = require('path');
-var association = require('./association');
+var config = require('./config');
 var Sequelize = require('sequelize');
 var sequelize = new Sequelize('postgres://sequelize:1234@localhost/sequelize');
+/*var sequelize = new Sequelize('postgres://sequelize:1234@localhost/sequelize', {
+  define: {
+    hooks: {
+      beforeCreate: function() {
+        console.log('global hooks');
+        //TODO: global hooks before create
+      }
+    }
+  }
+}); */
+
 /*var sequelize = new Sequelize('sequelize', 'sequelize', '1234', {
   host: 'localhost',
   dialect: 'postgres'
@@ -15,14 +26,15 @@ var db = {};
 
 fs.readdirSync(__dirname)
   .filter(function(file) {
-    return (file.indexOf('.') !== 0) && (file !== 'index.js' && file !== 'association.js');
+    return (file.indexOf('.') !== 0) && (file !== 'index.js' && file !== 'config.js');
   })
   .forEach(function(file) {
     var model = sequelize['import'](path.join(__dirname, file));
     db[model.name] = model;
   });
 
-association.init(db);
+config.initAssociations(db);
+//config.initHooks(db); hooks설정시 주석을 제거한다
 
 //db.Publisher.sync();
 //db.Publisher.drop();

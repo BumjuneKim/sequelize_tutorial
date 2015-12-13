@@ -23,6 +23,16 @@ ngModule.config(['$stateProvider', '$urlRouterProvider', '$httpProvider', '$tool
         url: '/books?pub_id',
         templateUrl: 'tpl/books.html',
         controller: 'booksCtrl'
+      })
+      .state('main.user', {
+        url: '/user',
+        templateUrl: 'tpl/user.html',
+        controller: 'userCtrl'
+      })
+      .state('main.rent', {
+        url: '/rent',
+        templateUrl: 'tpl/rent.html',
+        controller: 'rentCtrl'
       });
 
     $urlRouterProvider.otherwise('/');

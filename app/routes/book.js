@@ -32,6 +32,15 @@ router.route('/')
     });
   });
 
+router.route('/list')
+  .get(function(req, res, next) {
+    models.Books.findAll().then(function(results) {
+      res.json(results);
+    }).catch(function(err) {
+      next(err);
+    });
+  });
+
 router.route('/test')
   .get(function(req, res, next) {
 

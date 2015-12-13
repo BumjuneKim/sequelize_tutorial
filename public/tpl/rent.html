@@ -1,0 +1,36 @@
+<div class="row">
+  <div class="col-xs-3">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        Rent book
+      </div>
+      <div class="panel-body">
+        <div>Book</div>
+        <select ng-model="data.book_id" ng-options="b.book_id as b.title for b in data.bookList"></select>
+        <div>User</div>
+        <select ng-model="data.user_id" ng-options="u.user_id as u.username for u in data.userList"></select>
+        <button class="btn btn-success" ng-click="func.rentBook()">Rent</button>
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-6">
+    <h3 class="centre">Rent History</h3>
+    <table class="table table-bordered">
+      <thead>
+      <th class="col-xs-2">RentID</th>
+      <th class="col-xs-3">Rent bookname</th>
+      <th class="col-xs-3">Rent user</th>
+      <th class="col-xs-4">rent_date</th>
+      </thead>
+      <tbody>
+      <tr class="centre" ng-repeat="r in data.rentHistories track by r.rent_id">
+        <td>{{r.rent_id}}</td>
+        <td>{{r.Book.title}}</td>
+        <td>{{r.User.username}}</td>
+        <td>{{r.rent_date | date:'short'}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+

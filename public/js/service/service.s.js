@@ -31,6 +31,38 @@ ngModule.factory('bookService', ['$http', 'urlService',
       },
       testRawQuery: function(options) {
         return $http.get(PREFIX + '/test' + urlService.serialize(options));
+      },
+      getBookList: function(options) {
+        return $http.get(PREFIX + '/list' + urlService.serialize(options));
       }
     };
   }]);
+
+ngModule.factory('userService', ['$http', 'urlService',
+  function($http, urlService) {
+    var PREFIX = '/api/seq_ex/user';
+
+    return {
+      getUsers: function() {
+        return $http.get(PREFIX);
+      },
+      addNewUser: function(options) {
+        return $http.post(PREFIX, options);
+      }
+    };
+  }]);
+
+ngModule.factory('rentService', ['$http', 'urlService',
+  function($http, urlService) {
+    var PREFIX = '/api/seq_ex/rent';
+
+    return {
+      getRentHistories: function() {
+        return $http.get(PREFIX);
+      },
+      rentBookToUser: function(options) {
+        return $http.post(PREFIX, options);
+      }
+    };
+  }]);
+
